@@ -28,12 +28,12 @@ DebugSystem.prototype.Log = function( type , msg )
       break;  
     };
 };
-/*
+
 DebugSystem.prototype.UseDebugMode = function()
 {    
     if( inputSystem.isKeyDown( 27 ) && inputSystem.isKeyDown( 32 ) )
         this.debugMode = !this.debugMode;
 };
-*/
+
 var debugSystem = new DebugSystem;
 

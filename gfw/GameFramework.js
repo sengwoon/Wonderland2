@@ -1,9 +1,6 @@
 var GAME_FPS;
-var gameInterval;
 var game_state = new LoadingState(); 
-var after_loading_state;
-var theCanvas;
-var Context;
+var after_loading_state; // gfw에서 init을 통해 설정함
 
 function ChangeGameState( nextGameState )
 {
@@ -29,20 +26,15 @@ function Update()
     
   // 업데이트 
   game_state.Update();
-  
-  // 배포시에는 아래 코드를 주석처리하거나 삭제하면 개발버전 전환 기능 해제
-  //debugSystem.UseDebugMode();
+
 }
 
 function Render()
 {
   // 그리기
-  theCanvas = document.getElementById("GameCanvas");
-  Context  = theCanvas.getContext("2d");
+  var theCanvas = document.getElementById("GameCanvas");
+  var Context  = theCanvas.getContext("2d");
 
-  Context.fillStyle = "#000000";
-  Context.fillRect(0, 0, 960, 640); 
-  
   game_state.Render();
   
   // 각종 테스트 용도
