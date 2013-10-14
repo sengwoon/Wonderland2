@@ -58,39 +58,35 @@ function onLoadImageResourceComplete()
 
 function LoadingState()
 {
-	this.loadingTimer = new Timer();
-	this.developer = new Image();
-	this.developer.src = "img/developer.png";
-	this.imgLoading = new Image(); 
-	this.imgLoading.src = "img/loading.jpg";
+    this.loadingTimer = new Timer();
+    this.developer = new Image();
+    this.developer.src = "img/developer.png";
+    this.imgLoading = new Image(); 
+    this.imgLoading.src = "img/loading.png";
     return this;
 }
 
 LoadingState.prototype.Render = function( )
 {
-    var theCanvas = document.getElementById("GameCanvas");
-    var Context  = theCanvas.getContext("2d");
-    
     var totalResourceCount = resourcePreLoader.intAllResourceCount + soundSystem.intAllResourceCount;
     var nowCompleteResourceCount = resourcePreLoader.nowResourceLoadedCount + soundSystem.nowResourceLoadedCount;
     
-	if(this.loadingTimer.nowFrame < 3000){
-		Context.drawImage(this.developer, 0, 0);
-	} else if( (this.loadingTimer.nowFrame>=3000)&&(this.loadingTimer.nowFrame < 7000) ) {
-Context.drawImage(this.imgLoading, 0, 0);
-		Context.fillStyle    = "#ffffff";
-	    Context.font         = '28px Arial'; 
-		Context.textBaseline = "top";
-		Context.fillText( "Now Loading..." + 100 * nowCompleteResourceCount / totalResourceCount+" %", 31, 570 );
-	}
-	
+    if(this.loadingTimer.nowFrame < 3000){
+        Context.drawImage(this.developer, 0, 0);
+    } else if( (this.loadingTimer.nowFrame>=3000)&&(this.loadingTimer.nowFrame < 7000) ) {
+        Context.drawImage(this.imgLoading, 0, 0);
+        Context.fillStyle    = "#ffffff";
+        Context.font         = '28px "ShowcardGothic"'; 
+        Context.textBaseline = "top";
+        Context.fillText( "Now Loading..." + (100 * nowCompleteResourceCount / totalResourceCount).toFixed(1)+" %", 31, 470 );
+    }
+    
 };
 
 LoadingState.prototype.Update = function( )
 {
-    // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환한다.
-    //if( resourcePreLoader.isLoadComplete && soundSystem.isLoadComplete )
-    if(this.loadingTimer.nowFrame > 7000)
+    // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환
+    if( (this.loadingTimer.nowFrame>7000)&&resourcePreLoader.isLoadComplete&&soundSystem.isLoadComplete )
     {
         ChangeGameState( after_loading_state );
     }    
