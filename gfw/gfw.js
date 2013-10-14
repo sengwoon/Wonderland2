@@ -119,7 +119,7 @@ function onGameInit()
     
     // 게임 초기 시작 상태 설정
     after_loading_state = new TitleState(); // 나중에 타이틀 스테이트로 바꿀것
-    setInterval( gameLoop, 1000 / GAME_FPS );
+    gameInterval = setInterval( gameLoop, 1000 / GAME_FPS );
 }
 
 
