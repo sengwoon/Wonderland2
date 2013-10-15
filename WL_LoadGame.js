@@ -6,10 +6,12 @@ function LoadGameState(e){
 
 //게임 시작할때 1회 실행
 LoadGameState.prototype.Init = function(){
+	Context.clearRect(0, 0, 960, 576);
 	//soundSystem.SetVolume(0);
 };
 
 LoadGameState.prototype.Render= function(){
+	Context.clearRect(0, 0, 960, 576);
 	Context.globalAlpha = 1;
 	Context.fillStyle = "#000000";
 	Context.fillRect(0, 0, 960, 640);

@@ -63,6 +63,7 @@ function SelectState(e){
 }
 
 SelectState.prototype.Init = function(){
+	Context.clearRect(0, 0, 960, 576);
 	if(this.previousState=="game"){
 		//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 		this.selectMode=1;
@@ -72,6 +73,7 @@ SelectState.prototype.Init = function(){
 };
 
 SelectState.prototype.Render= function(){
+	Context.clearRect(0, 0, 960, 576);
 	//배경
 	Context.globalAlpha = this.alpha;
 	Context.drawImage(this.imgSelect, 0, 0);

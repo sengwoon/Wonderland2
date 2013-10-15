@@ -11,11 +11,13 @@ function MapState(e){
 }
 
 MapState.prototype.Init = function(){
+	Context.clearRect(0, 0, 960, 576);
 	//if(this.previousState=="title")
 		//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 };
 
 MapState.prototype.Render= function(){
+	Context.clearRect(0, 0, 960, 576);
 	Context.globalAlpha = this.alpha;
 	Context.drawImage(this.imgMap, 0, 0);
 	Context.drawImage(this.imgSetting, 1, 1);
