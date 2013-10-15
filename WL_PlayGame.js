@@ -62,7 +62,7 @@ function PlayGameState(){
 	this.scoreRender =0;
 	this.coinGainRender =0;
 			
-	soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
+	//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 	game = this;
 }
 
@@ -74,8 +74,8 @@ PlayGameState.prototype.Init = function(){
 	this.npc.AddObject( "diaLeft", 1000, 314, level );
 	this.npc.AddObject( "diaLeft", 1600, 314, level );
 	this.npc.AddObject( "diaRight", -400, 314, level );
-	soundSystem.PlayBackgroundMusic("sound/bgm_play.mp3");
-	soundSystem.SetVolume(1);
+	//soundSystem.PlayBackgroundMusic("sound/bgm_play.mp3");
+	//soundSystem.SetVolume(1);
 };
 //게임 화면 출력
 PlayGameState.prototype.Render= function(){
@@ -257,7 +257,7 @@ PlayGameState.prototype.Update = function(){
 			if( ((this.npc.arrNPC[i].sort == "diaRight") || (this.npc.arrNPC[i].sort == "diaLeft")) && this.npc.arrNPC[i].HP>0 ){
 				if(this.npc.arrNPC[i].isBeating){
 					if( this.player.isUnbeatable == false ){
-						soundSystem.PlaySound("sound/attacked.mp3");
+						//soundSystem.PlaySound("sound/attacked.mp3");
 						this.player.unbeatableFrame = 0;
 						this.player.HP-=this.npc.arrNPC[i].power;
 						if(this.player.HP<=0){
@@ -275,7 +275,7 @@ PlayGameState.prototype.Update = function(){
 			if( ((this.npc.arrNPC[i].sort == "diaRight") || (this.npc.arrNPC[i].sort == "diaLeft")) && this.npc.arrNPC[i].HP>0 ){
 				if(this.npc.arrNPC[i].isBeating){
 					if( this.ward.isUnbeatable == false ){
-						soundSystem.PlaySound("sound/attacked.mp3");
+						//soundSystem.PlaySound("sound/attacked.mp3");
 						this.ward.unbeatableFrame = 0;
 						this.ward.HP-=this.npc.arrNPC[i].power;
 						if(this.ward.HP<=0){
@@ -388,14 +388,14 @@ PlayGameState.prototype.ResultUpdate = function(){
 			if(this.coinGainRender > this.coinGain) this.coinGainRender = this.coinGain;
 			
 			if( (this.scoreRender==this.score)&&(this.coinGainRender==this.coinGain) ){
-				if( (inputSystem.mouseX>360) && (inputSystem.mouseX<342+240) && (inputSystem.mouseY>342) && (inputSystem.mouseY<342+90) ){
-					if(inputSystem.isMousePressed){
+				if( (inputSystem.touchX>360) && (inputSystem.touchX<342+240) && (inputSystem.touchY>342) && (inputSystem.touchY<342+90) ){
+					if(inputSystem.isTouch){
 						if(this.flagScrollButton==false){
 							this.flagScrollButton=true;
 						}
 					} else {
 						if(this.flagScrollButton){
-						soundSystem.PlaySound("sound/menuclick.mp3");
+						//soundSystem.PlaySound("sound/menuclick.mp3");
 						this.transition =2;
 						}
 					}

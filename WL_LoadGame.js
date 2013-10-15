@@ -6,7 +6,7 @@ function LoadGameState(e){
 
 //게임 시작할때 1회 실행
 LoadGameState.prototype.Init = function(){
-	soundSystem.SetVolume(0);
+	//soundSystem.SetVolume(0);
 };
 
 LoadGameState.prototype.Render= function(){

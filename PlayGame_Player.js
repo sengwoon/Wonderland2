@@ -189,7 +189,7 @@ PGPlayer.prototype.PushSkill = function(){
 		obj.knockback = false;
 
 	if(this.skillFrame > 2500 / this.skillRate){
-		soundSystem.PlaySound("sound/attack.mp3");
+		//soundSystem.PlaySound("sound/attack.mp3");
 		this.arrSkill.push( obj );
 		this.skillFrame =0;
 		this.spellFrame =0;

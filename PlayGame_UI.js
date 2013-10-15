@@ -80,8 +80,8 @@ PGUI.prototype.RenderTime = function(){
     }
 };
 PGUI.prototype.Update = function(){
-	if(inputSystem.mouseX>29 && inputSystem.mouseY>433 && inputSystem.mouseX<29+116 && inputSystem.mouseY<433+96 && game.isPaused==false && game.isOver==false ){
-		if(inputSystem.isMousePressed){
+	if(inputSystem.touchX>29 && inputSystem.touchY>433 && inputSystem.touchX<29+116 && inputSystem.touchY<433+96 && game.isPaused==false && game.isOver==false ){
+		if(inputSystem.isTouch){
 			if(this.flagLeft==false){
 				this.flagLeft=true;
 			}
@@ -95,8 +95,8 @@ PGUI.prototype.Update = function(){
 	} else {
 		this.flagLeft=false;
 	}
-	if(inputSystem.mouseX>215 && inputSystem.mouseY>433 && inputSystem.mouseX<215+116 && inputSystem.mouseY<433+96 && game.isPaused==false && game.isOver==false ){
-		if(inputSystem.isMousePressed){
+	if(inputSystem.touchX>215 && inputSystem.touchY>433 && inputSystem.touchX<215+116 && inputSystem.touchY<433+96 && game.isPaused==false && game.isOver==false ){
+		if(inputSystem.isTouch){
 			if(this.flagRight==false){
 				this.flagRight=true;
 			}
@@ -110,8 +110,8 @@ PGUI.prototype.Update = function(){
 		this.flagRight=false;
 	}
 	//설정 버튼 누르면 일시정지
-	if(inputSystem.mouseX>1 && inputSystem.mouseY>1 && inputSystem.mouseX<1+78 && inputSystem.mouseY<1+78 && game.isOver==false){
-		if(inputSystem.isMousePressed){
+	if(inputSystem.touchX>1 && inputSystem.touchY>1 && inputSystem.touchX<1+78 && inputSystem.touchY<1+78 && game.isOver==false){
+		if(inputSystem.isTouch){
 			if(this.flagSetting==false){
 				this.flagSetting=true;
 			}

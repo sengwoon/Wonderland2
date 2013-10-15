@@ -7,11 +7,12 @@ function MapState(e){
 	this.previousState = e;
 	this.transition = false;
 	this.alpha = 1;
+	return this;
 }
 
 MapState.prototype.Init = function(){
 	if(this.previousState=="title")
-		soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
+		//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 };
 
 MapState.prototype.Render= function(){
@@ -25,14 +26,14 @@ MapState.prototype.Render= function(){
 };
 
 MapState.prototype.UpdateUI = function(){
-	if(inputSystem.mouseX>15 && inputSystem.mouseY>172 && inputSystem.mouseX<15+268 && inputSystem.mouseY<172+347){
-		if(inputSystem.isMousePressed){
+	if(inputSystem.touchX>15 && inputSystem.touchY>172 && inputSystem.touchX<15+268 && inputSystem.touchY<172+347){
+		if(inputSystem.isTouch){
 			if(this.flagMadhatter==false){
 				this.flagMadhatter=true;
 			}
 		} else {
 			if(this.flagMadhatter){
-				soundSystem.PlaySound("sound/menuclick.mp3");
+				//soundSystem.PlaySound("sound/menuclick.mp3");
 			 	this.transition = true;
 			 	this.flagMadhatter=false;
 			}

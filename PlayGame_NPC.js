@@ -193,7 +193,7 @@ PGNPC.prototype.Update = function(){
 			if(this.arrNPC[i].dropFrame>2000){
 				if( Math.random()>0.5 ){
 					this.AddObject( "coin", this.arrNPC[i].x+16, this.arrNPC[i].y+70, this.arrNPC[i].level ); // 50% 확률로 아이템 드롭!
-					soundSystem.PlaySound("sound/item_drop.mp3");
+					//soundSystem.PlaySound("sound/item_drop.mp3");
 				}
 				this.arrNPC.splice(i,1);
 				continue;
@@ -341,7 +341,7 @@ PGNPC.prototype.CheckCollision = function( target ){
 				game.Message("coin", this.arrNPC[i].x, this.arrNPC[i].y, gainCoin);
 				game.coinGain += gainCoin;
 				this.arrNPC.splice(i, 1);
-				soundSystem.PlaySound("sound/item_gain.mp3");
+				//soundSystem.PlaySound("sound/item_gain.mp3");
 				break;
 			}
 		}
@@ -368,7 +368,7 @@ PGNPC.prototype.CheckBeated = function(){
 					target.splice(j, 1);
 					game.score += gainScore;
 					game.Message("score", this.arrNPC[i].x, this.arrNPC[i].y+20, gainScore);
-					soundSystem.PlaySound("sound/flame.mp3");
+					//soundSystem.PlaySound("sound/flame.mp3");
 					if(this.arrNPC[i].HP<=0){
 						this.arrNPC[i].HP=0;
 						game.score += gainScore;

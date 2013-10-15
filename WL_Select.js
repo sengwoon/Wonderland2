@@ -64,7 +64,7 @@ function SelectState(e){
 
 SelectState.prototype.Init = function(){
 	if(this.previousState=="game"){
-		soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
+		//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 		this.selectMode=1;
 		this.gameScrollY = 64;
 		this.isGameScrollOpened=true;
@@ -175,28 +175,28 @@ SelectState.prototype.Render= function(){
 
 SelectState.prototype.UpdateUI = function(){
 	if( (this.selectMode==0) && (this.isGameScrollOpened==false) && (this.isDataScrollOpened==false) ){ // 아무 모드도 아니면서 스크롤이 전부 닫혀있을때
-		if(inputSystem.mouseX>371 && inputSystem.mouseY>11 && inputSystem.mouseX<371+563 && inputSystem.mouseY<11+105){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>371 && inputSystem.touchY>11 && inputSystem.touchX<371+563 && inputSystem.touchY<11+105){
+			if(inputSystem.isTouch){
 				if(this.flagGameButton==false){
 					this.flagGameButton=true;
 				}
 			} else {
 				if(this.flagGameButton){ // 버튼 클릭후 반응 부분
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.selectMode=1;
 				}
 			}
 		} else {
 			this.flagGameButton=false;
 		}
-		if(inputSystem.mouseX>371 && inputSystem.mouseY>142 && inputSystem.mouseX<371+563 && inputSystem.mouseY<142+105){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>371 && inputSystem.touchY>142 && inputSystem.touchX<371+563 && inputSystem.touchY<142+105){
+			if(inputSystem.isTouch){
 				if(this.flagDataButton==false){
 					this.flagDataButton=true;
 				}
 			} else {
 				if(this.flagDataButton){ // 버튼 클릭 후 반응 부분
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.selectMode=2;
 				}
 			} 
@@ -204,14 +204,14 @@ SelectState.prototype.UpdateUI = function(){
 			this.flagDataButton=false;
 		}
 		//뒤로가기 버튼은 아무것도 선택 안된 모드일때만 실행
-		if(inputSystem.mouseX>5 && inputSystem.mouseY>89 && inputSystem.mouseX<5+70 && inputSystem.mouseY<89+63){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>5 && inputSystem.touchY>89 && inputSystem.touchX<5+70 && inputSystem.touchY<89+63){
+			if(inputSystem.isTouch){
 				if(this.flagBackButton==false){
 					this.flagBackButton=true;
 				}
 			} else {
 				if(this.flagBackButton){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.transition = 2;
 					this.flagBackButton=false;
 				}
@@ -223,14 +223,14 @@ SelectState.prototype.UpdateUI = function(){
 	// 게임모드로 바뀌고 게임 스크롤이 펴지고 에러메시지가 출력되지 않았을때
 	if( (this.selectMode==1) && this.isGameScrollOpened && this.isError==false  ){
 		//스테이지 클릭시 에러메시지 출력
-		if(inputSystem.mouseX>588 && inputSystem.mouseY>122 && inputSystem.mouseX<588+126 && inputSystem.mouseY<122+126){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>588 && inputSystem.touchY>122 && inputSystem.touchX<588+126 && inputSystem.touchY<122+126){
+			if(inputSystem.isTouch){
 				if(this.flagStage2Button==false){
 					this.flagStage2Button=true;
 				}
 			} else {
 				if(this.flagStage2Button){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.isError =true;
 					this.flagStage2Button=false;
 				}
@@ -238,14 +238,14 @@ SelectState.prototype.UpdateUI = function(){
 		} else {
 			this.flagStage2Button=false;
 		}
-		if(inputSystem.mouseX>715 && inputSystem.mouseY>122 && inputSystem.mouseX<715+126 && inputSystem.mouseY<122+126){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>715 && inputSystem.touchY>122 && inputSystem.touchX<715+126 && inputSystem.touchY<122+126){
+			if(inputSystem.isTouch){
 				if(this.flagStage3Button==false){
 					this.flagStage3Button=true;
 				}
 			} else {
 				if(this.flagStage3Button){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.isError =true;
 					this.flagStage3Button=false;
 				}
@@ -254,14 +254,14 @@ SelectState.prototype.UpdateUI = function(){
 			this.flagStage3Button=false;
 		}
 		//상점 클릭시 에러메시지 출력
-		if(inputSystem.mouseX>721 && inputSystem.mouseY>251 && inputSystem.mouseX<721+114 && inputSystem.mouseY<251+51){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>721 && inputSystem.touchY>251 && inputSystem.touchX<721+114 && inputSystem.touchY<251+51){
+			if(inputSystem.isTouch){
 				if(this.flagShopButton==false){
 					this.flagShopButton=true;
 				}
 			} else {
 				if(this.flagShopButton){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.isError =true;
 					this.flagShopButton=false;
 				}
@@ -270,14 +270,14 @@ SelectState.prototype.UpdateUI = function(){
 			this.flagShopButton=false;
 		}
 		//게임 스타트 버튼
-		if(inputSystem.mouseX>458 && inputSystem.mouseY>303 && inputSystem.mouseX<458+383 && inputSystem.mouseY<303+222){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>458 && inputSystem.touchY>303 && inputSystem.touchX<458+383 && inputSystem.touchY<303+222){
+			if(inputSystem.isTouch){
 				if(this.flagGameStartButton==false){
 					this.flagGameStartButton=true;
 				}
 			} else {
 				if(this.flagGameStartButton){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.transition =3;
 					this.flagGameStartButton=false;
 				}
@@ -286,14 +286,14 @@ SelectState.prototype.UpdateUI = function(){
 			this.flagGameStartButton=false;
 		}
 		//배경 클릭 제어
-		if(inputSystem.mouseX>0 && inputSystem.mouseY>0 && inputSystem.mouseX<430 && inputSystem.mouseY<640){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>0 && inputSystem.touchY>0 && inputSystem.touchX<430 && inputSystem.touchY<640){
+			if(inputSystem.isTouch){
 				if (this.flagBackground==false){
 					this.flagBackground = true;
 				}
 			} else {
 				if(this.flagBackground){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.selectMode = 0;
 					this.flagGameButton = false;
 					this.flagDataButton = true;
@@ -309,14 +309,14 @@ SelectState.prototype.UpdateUI = function(){
 	if( (this.selectMode==2) && this.isDataScrollOpened && this.isError==false ){
 		//데이터 전송 버튼 제어
 		if(this.DataMode ==0){ //전송 모드
-			if(inputSystem.mouseX>456 && inputSystem.mouseY>this.dataScrollY+71 && inputSystem.mouseX<456+386 && inputSystem.mouseY<this.dataScrollY+71+97 ){
-				if(inputSystem.isMousePressed){
+			if(inputSystem.touchX>456 && inputSystem.touchY>this.dataScrollY+71 && inputSystem.touchX<456+386 && inputSystem.touchY<this.dataScrollY+71+97 ){
+				if(inputSystem.isTouch){
 					if (this.flagDataSendButton==false){
 						this.flagDataSendButton = true;
 											}
 				} else {
 					if (this.flagDataSendButton){
-						soundSystem.PlaySound("sound/menuclick.mp3");
+						//soundSystem.PlaySound("sound/menuclick.mp3");
 						this.isError=true;
 						this.flagDataSendButton = false;
 						/////////////////////////////////////////////////////////////////정보 전송 시스템 넣기
@@ -325,14 +325,14 @@ SelectState.prototype.UpdateUI = function(){
 			} else {
 				this.flagDataSendButton = false;
 			}
-			if(inputSystem.mouseX>456 && inputSystem.mouseY>this.dataScrollY+219 && inputSystem.mouseX<456+386 && inputSystem.mouseY<this.dataScrollY+219+97 ){
-				if(inputSystem.isMousePressed){
+			if(inputSystem.touchX>456 && inputSystem.touchY>this.dataScrollY+219 && inputSystem.touchX<456+386 && inputSystem.touchY<this.dataScrollY+219+97 ){
+				if(inputSystem.isTouch){
 					if (this.flagDataReceiveButton==false){
 						this.flagDataReceiveButton = true;
 					}
 				} else {
 					if (this.flagDataReceiveButton){
-						soundSystem.PlaySound("sound/menuclick.mp3");
+						//soundSystem.PlaySound("sound/menuclick.mp3");
 						this.DataMode=1;
 						this.flagDataReceiveButton = false;
 					}
@@ -341,14 +341,14 @@ SelectState.prototype.UpdateUI = function(){
 				this.flagDataReceiveButton = false;
 			}				
 		} else if (this.DataMode ==1){ //수령 모드
-			if(inputSystem.mouseX>456 && inputSystem.mouseY>this.dataScrollY+71 && inputSystem.mouseX<456+386 && inputSystem.mouseY<this.dataScrollY+71+97 ){
-				if(inputSystem.isMousePressed){
+			if(inputSystem.touchX>456 && inputSystem.touchY>this.dataScrollY+71 && inputSystem.touchX<456+386 && inputSystem.touchY<this.dataScrollY+71+97 ){
+				if(inputSystem.isTouch){
 					if (this.flagDataSendButton==false){
 						this.flagDataSendButton = true;
 					}
 				} else {
 					if (this.flagDataSendButton){
-						soundSystem.PlaySound("sound/menuclick.mp3");
+						//soundSystem.PlaySound("sound/menuclick.mp3");
 						this.DataMode=0;
 						this.flagDataSendButton = false;
 					}
@@ -356,14 +356,14 @@ SelectState.prototype.UpdateUI = function(){
 			} else {
 				this.flagDataSendButton = false;
 			}
-			if(inputSystem.mouseX>456 && inputSystem.mouseY>this.dataScrollY+219 && inputSystem.mouseX<456+386 && inputSystem.mouseY<this.dataScrollY+219+97 ){
-				if(inputSystem.isMousePressed){
+			if(inputSystem.touchX>456 && inputSystem.touchY>this.dataScrollY+219 && inputSystem.touchX<456+386 && inputSystem.touchY<this.dataScrollY+219+97 ){
+				if(inputSystem.isTouch){
 					if (this.flagDataReceiveButton==false){
 						this.flagDataReceiveButton = true;
 					}
 				} else {
 					if (this.flagDataReceiveButton){
-						soundSystem.PlaySound("sound/menuclick.mp3");
+						//soundSystem.PlaySound("sound/menuclick.mp3");
 						this.isError=true;
 						this.flagDataReceiveButton = false;
 					}
@@ -373,14 +373,14 @@ SelectState.prototype.UpdateUI = function(){
 			}
 		}
 		//배경 클릭 제어
-		if(inputSystem.mouseX>0 && inputSystem.mouseY>0 && inputSystem.mouseX<430 && inputSystem.mouseY<640){
-			if(inputSystem.isMousePressed){
+		if(inputSystem.touchX>0 && inputSystem.touchY>0 && inputSystem.touchX<430 && inputSystem.touchY<640){
+			if(inputSystem.isTouch){
 				if (this.flagBackground==false){
 					this.flagBackground = true;
 				}
 			} else {
 				if(this.flagBackground){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.DataMode = 0;
 					this.selectMode = 0;
 					this.flagDataButton = false;
@@ -394,7 +394,7 @@ SelectState.prototype.UpdateUI = function(){
 	}
 
 	if(this.isError){
-		if(inputSystem.isMousePressed){
+		if(inputSystem.isTouch){
 			if(this.flagClick==false){
 				this.flagClick=true;
 			}
