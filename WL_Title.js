@@ -20,9 +20,6 @@ TitleState.prototype.Init = function(){
 };
 
 TitleState.prototype.Render= function(){
-	var theCanvas = document.getElementById("GameCanvas");
-	var Context  = theCanvas.getContext("2d");
-
 	Context.globalAlpha = 1;
 	Context.drawImage(this.imgMap, 0, 0);
 	Context.globalAlpha = this.alpha;

@@ -70,8 +70,6 @@ function LoadingState()
 
 LoadingState.prototype.Render = function( )
 {
-    var theCanvas = document.getElementById("GameCanvas");
-    var Context  = theCanvas.getContext("2d");
     var totalResourceCount = resourcePreLoader.intAllResourceCount + soundSystem.intAllResourceCount;
     var nowCompleteResourceCount = resourcePreLoader.nowResourceLoadedCount + soundSystem.nowResourceLoadedCount;
     
@@ -94,7 +92,7 @@ LoadingState.prototype.Update = function( )
     // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환
     if( (this.loadingTimer.nowFrame>7000)&&resourcePreLoader.isLoadComplete&&soundSystem.isLoadComplete )
     {
-        ChangeGameState( after_loading_state );
+        ChangeGameState( new TitleState() );
     }    
 };
 

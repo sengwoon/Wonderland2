@@ -11,13 +11,11 @@ function InputSystem()
 }
 
 function onTouchStart(e){
-  var theCanvas = document.getElementById("GameCanvas");
   inputSystem.touchX = e.touches[0].clientX - theCanvas.offsetLeft;
   inputSystem.touchY = e.touches[0].clientY - theCanvas.offsetTop;
   inputSystem.isTouch = true;
 }
 function onTouchMove(e){
-  var theCanvas = document.getElementById("GameCanvas");
   inputSystem.touchX = e.touches[0].clientX - theCanvas.offsetLeft;
   inputSystem.touchY = e.touches[0].clientY - theCanvas.offsetTop;
   e.preventDefault();
