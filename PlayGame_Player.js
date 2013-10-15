@@ -151,11 +151,6 @@ PGPlayer.prototype.Update = function(){
 		this.arrExplo[j].sprFrame++;
 		if(this.arrExplo[j].sprFrame ==1)
 			this.arrExplo[j].splash = false;
-		if(this.arrExplo[j].sprFrame > 19){
-			this.arrExplo.splice(j, 1);
-			continue;
-		}
-
 		if(game.onGoingTo=="right") {
 			this.arrExplo[j].x-=game.speed;
 			this.arrExplo[j].collisionBox.left -= game.speed;
@@ -164,6 +159,10 @@ PGPlayer.prototype.Update = function(){
 			this.arrExplo[j].x+=game.speed;
 			this.arrExplo[j].collisionBox.left += game.speed;
 			this.arrExplo[j].collisionBox.right += game.speed;
+		}
+		if(this.arrExplo[j].sprFrame > 19){
+			this.arrExplo.splice(j, 1);
+			continue;
 		}
 	}
 };
