@@ -92,7 +92,8 @@ LoadingState.prototype.Update = function( )
     // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환
     if( (this.loadingTimer.nowFrame>7000)&&resourcePreLoader.isLoadComplete&&soundSystem.isLoadComplete )
     {
-        ChangeGameState( new TitleState() );
+        game_state = new TitleState();
+        //ChangeGameState( new TitleState() );
     }    
 };
 

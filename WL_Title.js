@@ -1,5 +1,7 @@
 function TitleState(){
-	this.imgLoading = resourcePreLoader.GetImage("img/loading.png");
+	this.imgLoading = new Image(); 
+	this.imgLoading.src = "img/loading.png";
+	/*this.imgLoading = resourcePreLoader.GetImage("img/loading.png");
 	this.imgMap = resourcePreLoader.GetImage("img/map.png");
 	this.flagLogin1 = false;
 	this.imgLogin1 = resourcePreLoader.GetImage("img/loading_loginbutton_01.png");
@@ -11,7 +13,7 @@ function TitleState(){
 	this.alpha = 1;
 	this.isError = false;
 	this.imgError = resourcePreLoader.GetImage("img/error.png");
-	this.flagClick = false;
+	this.flagClick = false;*/
 	return this;
 }
 
@@ -20,10 +22,11 @@ TitleState.prototype.Init = function(){
 };
 
 TitleState.prototype.Render= function(){
-	Context.globalAlpha = 1;
-	Context.drawImage(this.imgMap, 0, 0);
-	Context.globalAlpha = this.alpha;
+	//Context.globalAlpha = 1;
+	//Context.drawImage(this.imgMap, 0, 0);
+	//Context.globalAlpha = this.alpha;
 	Context.drawImage(this.imgLoading, 0, 0);
+	/*
 	if(this.flagLogin1)
 		Context.drawImage(this.imgLogin1Down, 10, 395);
 	else
@@ -40,8 +43,9 @@ TitleState.prototype.Render= function(){
 		Context.globalAlpha = 1;
 		Context.drawImage(this.imgError, 280, 251);
 	}
+	*/
 };
-
+/*
 TitleState.prototype.UpdateUI = function(){
 	if(this.isError==false){
 		if(inputSystem.touchX>10 && inputSystem.touchY>395 && inputSystem.touchX<10+262 && inputSystem.touchY<395+64){
@@ -88,9 +92,9 @@ TitleState.prototype.UpdateUI = function(){
 		}
 	}
 };
-
+*/
 TitleState.prototype.Update = function(){
-	this.UpdateUI();
+/*	this.UpdateUI();
 	if(this.transition){
 		this.alpha -= 0.04;
 		if(this.alpha <0){
@@ -98,4 +102,5 @@ TitleState.prototype.Update = function(){
 			ChangeGameState( new MapState("title") ); // 버튼에 마우스가 위치한 상태에서 클릭시 실행!
 		}
 	}
+	*/
 };

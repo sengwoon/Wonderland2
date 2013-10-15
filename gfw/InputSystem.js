@@ -9,6 +9,7 @@ function InputSystem()
   this.isTouch = false;
   return this;
 }
+var inputSystem = new InputSystem();
 
 function onTouchStart(e){
   inputSystem.touchX = e.touches[0].clientX - theCanvas.offsetLeft;
@@ -24,5 +25,3 @@ function onTouchEnd(e){
   inputSystem.isTouch = false;
   e.preventDefault();
 }
-
-var inputSystem = new InputSystem();

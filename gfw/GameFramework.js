@@ -6,14 +6,14 @@ var theCanvas, Context;
 
 function ChangeGameState( nextGameState )
 {
-  // 필수 함수가 있는지 확인한다.
+  /*// 필수 함수가 있는지 확인한다.
   if( nextGameState.Init == undefined )
     return;
   if( nextGameState.Update == undefined )
     return;
   if( nextGameState.Render == undefined )
     return;
-  
+  */
   // 필수 함수가 있으면 상태 전환
   game_state = nextGameState;
   
