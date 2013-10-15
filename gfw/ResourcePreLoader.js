@@ -90,10 +90,9 @@ LoadingState.prototype.Render = function( )
 LoadingState.prototype.Update = function( )
 {
     // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환
-    if( resourcePreLoader.isLoadComplete ) // (this.loadingTimer.nowFrame>7000)&& // &&soundSystem.isLoadComplete
+    if( (this.loadingTimer.nowFrame>7000) && resourcePreLoader.isLoadComplete ) // &&soundSystem.isLoadComplete
     {
-        game_state = new TitleState();
-        //ChangeGameState( new TitleState() );
+        ChangeGameState( new TitleState() );
     }    
 };
 
