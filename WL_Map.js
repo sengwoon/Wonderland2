@@ -11,7 +11,7 @@ function MapState(e){
 }
 
 MapState.prototype.Init = function(){
-	if(this.previousState=="title")
+	//if(this.previousState=="title")
 		//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 };
 
