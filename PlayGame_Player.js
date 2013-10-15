@@ -75,7 +75,7 @@ PGPlayer.prototype.Render = function(){
 	//폭발 이펙트
 	for(var j=0; j<this.arrExplo.length; j++){
 		Context.globalAlpha = 1;
-		if( (this.arrExplo[j].x>-60)&&(this.arrExplo[j].x<960) ){
+		if( (this.arrExplo[j].x>-60)&&(this.arrExplo[j].x<960&&this.arrExplo.length>0) ){
 			if(this.arrExplo[j].sort == "heartRight")
 				Context.drawImage(this.sprExploRight, 60*this.arrExplo[j].sprFrame, 0, 60, 60, this.arrExplo[j].x, this.arrExplo[j].y, 60, 60);
 			else if(this.arrExplo[j].sort == "heartLeft")

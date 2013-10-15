@@ -72,12 +72,15 @@ LoadingState.prototype.Render = function( )
 {
     var totalResourceCount = resourcePreLoader.intAllResourceCount + soundSystem.intAllResourceCount;
     var nowCompleteResourceCount = resourcePreLoader.nowResourceLoadedCount + soundSystem.nowResourceLoadedCount;
-    Context.clearRect(0, 0, 960, 576);
+    
 	if(this.loadingTimer.nowFrame < 3000){
+        Context.clearRect(0, 0, 960, 576);
 		Context.drawImage(this.developer, 0, 0);
         Context.font         = '28px "ShowcardGothic"';
         Context.fillText( "load font", -100, -100 );
+
 	} else if( (this.loadingTimer.nowFrame>=3000) ) {
+        Context.clearRect(0, 0, 960, 576);
         Context.drawImage(this.imgLoading, 0, 0);
 		Context.fillStyle    = "#ffffff";
 	    Context.font         = '28px "ShowcardGothic"';
