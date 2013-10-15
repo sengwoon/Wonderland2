@@ -105,7 +105,7 @@ function onGameInit()
     resourcePreLoader.AddImage("img/game_over_scroll_lower.png");
     resourcePreLoader.AddImage("img/game_over_scroll_button.png");
     resourcePreLoader.AddImage("img/game_over_scroll_button_down.png");
-    
+    /*
     soundSystem.AddSound("sound/bgm_ready.mp3", 1);
     soundSystem.AddSound("sound/bgm_play.mp3", 1);
     soundSystem.AddSound("sound/menuclick.mp3", 1);
@@ -114,7 +114,7 @@ function onGameInit()
     soundSystem.AddSound("sound/attacked.mp3", 8);
     soundSystem.AddSound("sound/item_gain.mp3", 3);
     soundSystem.AddSound("sound/item_drop.mp3", 8);
-    
+    */
     // 게임 초기 시작 상태 설정
     gameInterval = setInterval( gameLoop, 1000 / GAME_FPS );
 }

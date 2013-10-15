@@ -51,7 +51,7 @@ TitleState.prototype.UpdateUI = function(){
 				}
 			} else {
 				if(this.flagLogin1){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.transition = true;
 					this.flagLogin1=false;
 				}
@@ -67,7 +67,7 @@ TitleState.prototype.UpdateUI = function(){
 				}
 			} else {
 				if(this.flagLogin2){
-					soundSystem.PlaySound("sound/menuclick.mp3");
+					//soundSystem.PlaySound("sound/menuclick.mp3");
 					this.isError = true;
 					this.flagLogin2=false;
 				}
