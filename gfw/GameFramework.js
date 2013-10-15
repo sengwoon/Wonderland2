@@ -1,7 +1,6 @@
 var GAME_FPS;
 var gameInterval;
 var game_state = new LoadingState(); 
-var after_loading_state;
 var theCanvas;
 var Context;
 
