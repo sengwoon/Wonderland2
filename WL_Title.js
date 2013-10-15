@@ -1,5 +1,5 @@
 function TitleState(){
-	this.imgLoading = resourcePreLoader.GetImage("img/loading.jpg");
+	this.imgLoading = resourcePreLoader.GetImage("img/loading.png");
 	this.flagLogin1 = false;
 	this.imgLogin1 = resourcePreLoader.GetImage("img/loading_loginbutton_01.png");
 	this.imgLogin1Down = resourcePreLoader.GetImage("img/loading_loginbutton_01_down.png");
@@ -13,9 +13,6 @@ TitleState.prototype.Init = function(){
 };
 
 TitleState.prototype.Render= function(){
-	var theCanvas = document.getElementById("GameCanvas");
-	var Context = theCanvas.getContext("2d");
-	
 	Context.globalAlpha = this.alpha/255;
 	Context.drawImage(this.imgLoading, 0, 0);
 	if(this.flagLogin1)
