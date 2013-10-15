@@ -27,7 +27,7 @@ ResourcePreLoader.prototype.AddImage = function( fileName )
     this.arrResource.push( { name: fileName ,image: img  } );
     this.intAllResourceCount++;
     
-    //debugSystem.Log( "LOG", "load resource "+ fileName );
+    debugSystem.Log( "LOG", "load resource "+ fileName );
 };
 
 ResourcePreLoader.prototype.GetImage = function( fileName )
@@ -77,7 +77,7 @@ LoadingState.prototype.Render = function( )
 		Context.drawImage(this.developer, 0, 0);
         Context.font         = '28px "ShowcardGothic"';
         Context.fillText( "load font", -100, -100 );
-	} else if( (this.loadingTimer.nowFrame>=3000)&&(this.loadingTimer.nowFrame < 7000) ) {
+	} else if( (this.loadingTimer.nowFrame>=3000) ) {
         Context.drawImage(this.imgLoading, 0, 0);
 		Context.fillStyle    = "#ffffff";
 	    Context.font         = '28px "ShowcardGothic"';
@@ -90,7 +90,7 @@ LoadingState.prototype.Render = function( )
 LoadingState.prototype.Update = function( )
 {
     // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환
-    if( (this.loadingTimer.nowFrame>7000) && resourcePreLoader.isLoadComplete ) // &&soundSystem.isLoadComplete
+    if( (this.loadingTimer.nowFrame>7000)&&resourcePreLoader.isLoadComplete&&soundSystem.isLoadComplete )
     {
         ChangeGameState( new TitleState() );
     }    
