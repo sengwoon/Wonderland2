@@ -63,7 +63,6 @@ function SelectState(e){
 }
 
 SelectState.prototype.Init = function(){
-	Context.clearRect(0, 0, 960, 576);
 	if(this.previousState=="game"){
 		//soundSystem.PlayBackgroundMusic("sound/bgm_ready.mp3");
 		this.selectMode=1;
@@ -461,12 +460,14 @@ SelectState.prototype.Update = function(){
 		this.alpha -= 0.08;
 		if(this.alpha < 0){
 			this.alpha = 0;
+			Context.clearRect(0, 0, 960, 576);
 			ChangeGameState( new MapState("select") );
 		}
 	} else if(this.transition ==3){
 		this.transitionX -= 40;
 		if(this.transitionX < 0){
 			this.transitionX = 0;
+			Context.clearRect(0, 0, 960, 576);
 			ChangeGameState( new LoadGameState("select") );
 		}
 	}

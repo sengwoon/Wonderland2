@@ -21,6 +21,7 @@ LoadGameState.prototype.Render= function(){
 
 LoadGameState.prototype.Update = function(){
 	if(this.gameLoadingTimer.nowFrame > 2000){
+		Context.clearRect(0, 0, 960, 576);
 		ChangeGameState( new PlayGameState("loadgame") );
 	}
 	this.sprFrame += 1/4;

@@ -68,7 +68,6 @@ function PlayGameState(){
 
 //게임 시작할때 1회 실행
 PlayGameState.prototype.Init = function(){
-	Context.clearRect(0, 0, 960, 576);
 	this.playTime = 0;
 	this.player.HP=fullHP;
 	//기본 적 세마리
@@ -80,7 +79,7 @@ PlayGameState.prototype.Init = function(){
 };
 //게임 화면 출력
 PlayGameState.prototype.Render= function(){
-	Context.clearRect(-1920, 0, 4800, 576);
+	Context.clearRect(0, 0, 960, 576);
 	Context.globalAlpha = 1;
 	Context.drawImage(this.imgBackground00, this.BG00x, 0);
 	Context.drawImage(this.imgBackground01, this.BG01x, 0);
@@ -408,6 +407,7 @@ PlayGameState.prototype.ResultUpdate = function(){
 			this.transAlpha += 0.16;
 			if(this.transAlpha >1){
 				this.transAlpha = 1;
+				Context.clearRect(0, 0, 960, 576);
 				ChangeGameState( new SelectState("game") );
 			}
 		}
