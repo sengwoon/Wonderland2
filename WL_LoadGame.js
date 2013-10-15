@@ -1,7 +1,7 @@
 function LoadGameState(e){
 	this.gameLoadingTimer = new Timer();
-	this.sprGameLoading = new SpriteAnimation( resourcePreLoader.GetImage("img/game_loading.png"), 160, 25, 4, 8);
-	this.sprGameLoading.SetPosition(48, 580);
+	this.sprGameLoading = resourcePreLoader.GetImage("img/game_loading.png");
+	this.sprFrame = 0;
 }
 
 //게임 시작할때 1회 실행
@@ -10,17 +10,18 @@ LoadGameState.prototype.Init = function(){
 };
 
 LoadGameState.prototype.Render= function(){
-	var theCanvas = document.getElementById("GameCanvas");
-	var Context = theCanvas.getContext("2d");
 	Context.globalAlpha = 1;
 	Context.fillStyle = "#000000";
 	Context.fillRect(0, 0, 960, 640);
-	this.sprGameLoading.Render( Context );
+
+	Context.drawImage(this.sprGameLoading, 160*Math.floor(this.sprFrame), 0, 160, 25, 31, 470, 160, 25);
 };
 
 LoadGameState.prototype.Update = function(){
 	if(this.gameLoadingTimer.nowFrame > 2000){
 		ChangeGameState( new PlayGameState("loadgame") );
 	}
-	this.sprGameLoading.Update();
+	this.sprFrame += 1/4;
+	if(Math.floor(this.sprFrame) >= 4 )
+		this.sprFrame=0;
 };

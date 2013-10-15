@@ -3,7 +3,6 @@ function onGameInit()
     document.title = "원더랜드: 엘-로드";
     
     GAME_FPS = 30;
-    debugSystem.debugMode = false;
     //리소스 프리로딩
     //로딩 화면 이미지
     resourcePreLoader.AddImage("img/loading.png");

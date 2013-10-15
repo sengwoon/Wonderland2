@@ -9,6 +9,7 @@ function ResourcePreLoader()
 
 ResourcePreLoader.prototype.AddImage = function( fileName )
 {    
+    
     // 리소스 중복에 대한 처리
     for( var i = 0; i < this.arrResource.length; i++ )
     {
@@ -19,13 +20,14 @@ ResourcePreLoader.prototype.AddImage = function( fileName )
         }
     }
     
+    
     var img = new Image();
     img.src = fileName;
     img.addEventListener("load", onLoadImageResourceComplete, false);
     this.arrResource.push( { name: fileName ,image: img  } );
     this.intAllResourceCount++;
     
-    debugSystem.Log( "LOG", "load resource "+ fileName );
+    //debugSystem.Log( "LOG", "load resource "+ fileName );
 };
 
 ResourcePreLoader.prototype.GetImage = function( fileName )
@@ -58,11 +60,11 @@ function onLoadImageResourceComplete()
 
 function LoadingState()
 {
-    this.loadingTimer = new Timer();
-    this.developer = new Image();
-    this.developer.src = "img/developer.png";
-    this.imgLoading = new Image(); 
-    this.imgLoading.src = "img/loading.png";
+	this.loadingTimer = new Timer();
+	this.developer = new Image();
+	this.developer.src = "img/developer.png";
+	this.imgLoading = new Image(); 
+	this.imgLoading.src = "img/loading.png";
     return this;
 }
 
@@ -71,16 +73,18 @@ LoadingState.prototype.Render = function( )
     var totalResourceCount = resourcePreLoader.intAllResourceCount + soundSystem.intAllResourceCount;
     var nowCompleteResourceCount = resourcePreLoader.nowResourceLoadedCount + soundSystem.nowResourceLoadedCount;
     
-    if(this.loadingTimer.nowFrame < 3000){
-        Context.drawImage(this.developer, 0, 0);
-    } else if( (this.loadingTimer.nowFrame>=3000)&&(this.loadingTimer.nowFrame < 7000) ) {
+	if(this.loadingTimer.nowFrame < 3000){
+		Context.drawImage(this.developer, 0, 0);
+        Context.font         = '28px "ShowcardGothic"';
+        Context.fillText( "laad font", -100, -100 );
+	} else if( (this.loadingTimer.nowFrame>=3000)&&(this.loadingTimer.nowFrame < 7000) ) {
         Context.drawImage(this.imgLoading, 0, 0);
-        Context.fillStyle    = "#ffffff";
-        Context.font         = '28px "ShowcardGothic"'; 
-        Context.textBaseline = "top";
-        Context.fillText( "Now Loading..." + (100 * nowCompleteResourceCount / totalResourceCount).toFixed(1)+" %", 31, 470 );
-    }
-    
+		Context.fillStyle    = "#ffffff";
+	    Context.font         = '28px "ShowcardGothic"';
+		Context.textBaseline = "top";
+		Context.fillText( "Now Loading..." + (100 * nowCompleteResourceCount / totalResourceCount).toFixed(1)+" %", 31, 470 );
+	}
+	
 };
 
 LoadingState.prototype.Update = function( )
