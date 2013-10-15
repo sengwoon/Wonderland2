@@ -106,6 +106,7 @@ function onGameInit()
     resourcePreLoader.AddImage("img/game_over_scroll_button.png");
     resourcePreLoader.AddImage("img/game_over_scroll_button_down.png");
     
+    /*
     soundSystem.AddSound("sound/bgm_ready.mp3", 1);
     soundSystem.AddSound("sound/bgm_play.mp3", 1);
     soundSystem.AddSound("sound/menuclick.mp3", 1);
@@ -114,7 +115,7 @@ function onGameInit()
     soundSystem.AddSound("sound/attacked.mp3", 8);
     soundSystem.AddSound("sound/item_gain.mp3", 3);
     soundSystem.AddSound("sound/item_drop.mp3", 8);
-    
+    */
     
     // 게임 초기 시작 상태 설정
     //after_loading_state = new TitleState(); // 나중에 타이틀 스테이트로 바꿀것
