@@ -1,6 +1,6 @@
 function TitleState(){
 	this.imgLoading = resourcePreLoader.GetImage("img/loading.png");
-	this.imgMap = resourcePreLoader.GetImage("img/map.png");
+	/*this.imgMap = resourcePreLoader.GetImage("img/map.png");
 	this.flagLogin1 = false;
 	this.imgLogin1 = resourcePreLoader.GetImage("img/loading_loginbutton_01.png");
 	this.imgLogin1Down = resourcePreLoader.GetImage("img/loading_loginbutton_01_down.png");
@@ -8,10 +8,10 @@ function TitleState(){
 	this.imgLogin2 = resourcePreLoader.GetImage("img/loading_loginbutton_02.png");
 	this.imgLogin2Down = resourcePreLoader.GetImage("img/loading_loginbutton_02_down.png");
 	this.transition = false;
-	//this.alpha = 1;
+	this.alpha = 1;
 	this.isError = false;
 	this.imgError = resourcePreLoader.GetImage("img/error.png");
-	this.flagClick = false;
+	this.flagClick = false;*/
 }
 
 TitleState.prototype.Init = function(){
@@ -20,10 +20,10 @@ TitleState.prototype.Init = function(){
 
 TitleState.prototype.Render= function(){
 	//Context.globalAlpha = 1;
-	Context.drawImage(this.imgMap, 0, 0);
-	//Context.globalAlpha = this.alpha;
+	//Context.drawImage(this.imgMap, 0, 0);
+	Context.globalAlpha = this.alpha;
 	Context.drawImage(this.imgLoading, 0, 0);
-	if(this.flagLogin1)
+	/*if(this.flagLogin1)
 		Context.drawImage(this.imgLogin1Down, 10, 395);
 	else
 		Context.drawImage(this.imgLogin1, 10, 395);
@@ -38,9 +38,9 @@ TitleState.prototype.Render= function(){
 		Context.fillRect(0, 0, 960, 576);
 		//Context.globalAlpha = 1;
 		Context.drawImage(this.imgError, 280, 251);
-	}
+	}*/
 };
-
+/*
 TitleState.prototype.UpdateUI = function(){
 	if(this.isError==false){
 		if(inputSystem.touchX>10 && inputSystem.touchY>395 && inputSystem.touchX<10+262 && inputSystem.touchY<395+64){
@@ -87,14 +87,14 @@ TitleState.prototype.UpdateUI = function(){
 		}
 	}
 };
-
+*/
 TitleState.prototype.Update = function(){
-	this.UpdateUI();
-	//if(this.transition){
-	//	this.alpha -= 0.04;
-	//	if(this.alpha <0){
-	//		this.alpha = 0;
-	//		ChangeGameState( new MapState("title") ); // 버튼에 마우스가 위치한 상태에서 클릭시 실행!
-	//	}
-	//}
+	/*this.UpdateUI();
+	if(this.transition){
+		this.alpha -= 0.04;
+		if(this.alpha <0){
+			this.alpha = 0;
+			ChangeGameState( new MapState("title") ); // 버튼에 마우스가 위치한 상태에서 클릭시 실행!
+		}
+	}*/
 };
