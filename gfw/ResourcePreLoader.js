@@ -72,13 +72,15 @@ LoadingState.prototype.Render = function( )
 {
     var totalResourceCount = resourcePreLoader.intAllResourceCount + soundSystem.intAllResourceCount;
     var nowCompleteResourceCount = resourcePreLoader.nowResourceLoadedCount + soundSystem.nowResourceLoadedCount;
-
-    Context.clearRect(0, 0, 960, 576);
+    
 	if(this.loadingTimer.nowFrame < 3000){
-    	Context.drawImage(this.developer, 0, 0);
+        Context.clearRect(0, 0, 960, 576);
+		Context.drawImage(this.developer, 0, 0);
         Context.font         = '28px "ShowcardGothic"';
         Context.fillText( "load font", -100, -100 );
-    } else if( (this.loadingTimer.nowFrame>=3000) ) {
+
+	} else if( (this.loadingTimer.nowFrame>=3000) ) {
+        Context.clearRect(0, 0, 960, 576);
         Context.drawImage(this.imgLoading, 0, 0);
 		Context.fillStyle    = "#ffffff";
 	    Context.font         = '28px "ShowcardGothic"';
@@ -93,7 +95,7 @@ LoadingState.prototype.Update = function( )
     // 리소스를 모두 로딩했다면 게임 타이틀 상태로 전환
     if( (this.loadingTimer.nowFrame>7000)&&resourcePreLoader.isLoadComplete ) // &&soundSystem.isLoadComplete
     {
-        //Context.clearRect(0, 0, 960, 576);
+        Context.clearRect(0, 0, 960, 576);
         ChangeGameState( new TitleState() );
     }    
 };

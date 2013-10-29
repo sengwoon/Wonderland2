@@ -6,7 +6,7 @@ function LoadGameState(e){
 
 //게임 시작할때 1회 실행
 LoadGameState.prototype.Init = function(){
-	//Context.clearRect(0, 0, 960, 576);
+	Context.clearRect(0, 0, 960, 576);
 	//soundSystem.SetVolume(0);
 };
 
@@ -21,7 +21,7 @@ LoadGameState.prototype.Render= function(){
 
 LoadGameState.prototype.Update = function(){
 	if(this.gameLoadingTimer.nowFrame > 2000){
-		//Context.clearRect(0, 0, 960, 576);
+		Context.clearRect(0, 0, 960, 576);
 		ChangeGameState( new PlayGameState("loadgame") );
 	}
 	this.sprFrame += 1/4;
