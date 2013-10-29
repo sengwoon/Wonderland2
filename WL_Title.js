@@ -14,10 +14,6 @@ function TitleState(){
 	this.flagClick = false;
 	return this;
 }
-
-TitleState.prototype.Init = function(){
-	this.BGRender();
-};
 TitleState.prototype.BGRender = function(){
 	BGg.clearRect(0, 0, 960, 576);
 	if(this.transition)
@@ -25,7 +21,9 @@ TitleState.prototype.BGRender = function(){
 	BGg.globalAlpha = this.alpha;
 	BGg.drawImage(this.imgLoading, 0, 0);
 }
-
+TitleState.prototype.Init = function(){
+	this.BGRender();
+};
 TitleState.prototype.Render= function(){
 	Context.clearRect(0, 0, 960, 576);
 	//Context.globalAlpha = 1;
