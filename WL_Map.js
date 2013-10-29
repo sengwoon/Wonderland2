@@ -53,7 +53,7 @@ MapState.prototype.Update = function(){
 		this.alpha -= 0.08;
 		if(this.alpha < 0){
 			this.alpha = 0;
-			Context.clearRect(0, 0, 960, 576);
+			//Context.clearRect(0, 0, 960, 576);
 			ChangeGameState( new SelectState("map") ); // 버튼에 마우스가 위치한 상태에서 클릭시 실행!
 		}
 	}
