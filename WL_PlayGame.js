@@ -81,10 +81,10 @@ PlayGameState.prototype.Init = function(){
 PlayGameState.prototype.Render= function(){
 	Context.clearRect(0, 0, 960, 576);
 	Context.globalAlpha = 1;
-	Context.drawImage(this.imgBackground00, this.BG00x, 0);
-	Context.drawImage(this.imgBackground01, this.BG01x, 0);
-	Context.drawImage(this.imgBackground02, this.BG02x, 0);
-	Context.drawImage(this.imgBackground03, this.BG03x, 0);
+	Context.drawImage(this.imgBackground00, this.BG00x, 0, 960, 576, 0, 0, 960, 576);
+	Context.drawImage(this.imgBackground01, this.BG01x, 0, 960, 576, 0, 0, 960, 576);
+	Context.drawImage(this.imgBackground02, this.BG02x, 0, 960, 576, 0, 0, 960, 576);
+	Context.drawImage(this.imgBackground03, this.BG03x, 0, 960, 576, 0, 0, 960, 576);
 	
 	this.ward.Render();
 	this.npc.Render();

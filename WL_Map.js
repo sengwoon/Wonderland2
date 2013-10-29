@@ -17,6 +17,10 @@ MapState.prototype.Init = function(){
 
 MapState.prototype.Render= function(){
 	Context.clearRect(0, 0, 960, 576);
+	Context.globalAlpha = 1;
+	Context.fillStyle = "#000000";
+	Context.fillRect(0, 0, 960, 576);
+	Context.drawImage(this.imgMap, 0, 0);
 	Context.globalAlpha = this.alpha;
 	Context.drawImage(this.imgMap, 0, 0);
 	Context.drawImage(this.imgSetting, 1, 1);

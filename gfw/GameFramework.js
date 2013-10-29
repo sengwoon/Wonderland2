@@ -2,8 +2,6 @@ var GAME_FPS;
 var gameInterval;
 var game_state = new LoadingState(); 
 var theCanvas, Context;
-var BG, BGg;
-var UI, UIg;
 
 function ChangeGameState( nextGameState )
 {
@@ -37,10 +35,6 @@ function Render()
   // 그리기
   theCanvas = document.getElementById("GameCanvas");
   Context  = theCanvas.getContext("2d");
-  BG = document.getElementById("BGCanvas");
-  BGg  = BG.getContext("2d");
-  UI = document.getElementById("UICanvas");
-  UIg  = UI.getContext("2d");
   
   game_state.Render();
   

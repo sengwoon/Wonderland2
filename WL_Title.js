@@ -14,21 +14,17 @@ function TitleState(){
 	this.flagClick = false;
 	return this;
 }
-TitleState.prototype.BGRender = function(){
-	BGg.clearRect(0, 0, 960, 576);
-	if(this.transition)
-		BGg.drawImage(this.imgMap, 0, 0);
-	BGg.globalAlpha = this.alpha;
-	BGg.drawImage(this.imgLoading, 0, 0);
-}
+
 TitleState.prototype.Init = function(){
-	this.BGRender();
+	
 };
+
 TitleState.prototype.Render= function(){
 	Context.clearRect(0, 0, 960, 576);
-	//Context.globalAlpha = 1;
-	//Context.drawImage(this.imgMap, 0, 0);
-
+	Context.globalAlpha = 1;
+	Context.drawImage(this.imgMap, 0, 0);
+	Context.globalAlpha = this.alpha;
+	Context.drawImage(this.imgLoading, 0, 0);
 	if(this.flagLogin1)
 		Context.drawImage(this.imgLogin1Down, 10, 395);
 	else
@@ -98,10 +94,8 @@ TitleState.prototype.Update = function(){
 	this.UpdateUI();
 	if(this.transition){
 		this.alpha -= 0.04;
-		this.BGRender();
 		if(this.alpha <0){
 			this.alpha = 0;
-			BGg.clearRect(0, 0, 960, 576);
 			Context.clearRect(0, 0, 960, 576);
 			ChangeGameState( new MapState("title") ); // 버튼에 마우스가 위치한 상태에서 클릭시 실행!
 		}
