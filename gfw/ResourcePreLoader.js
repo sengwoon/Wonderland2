@@ -74,6 +74,8 @@ LoadingState.prototype.Render = function( )
     var nowCompleteResourceCount = resourcePreLoader.nowResourceLoadedCount + soundSystem.nowResourceLoadedCount;
 
     Context.clearRect(0, 0, 960, 576);
+    Context.fillStyle="#000000";
+    Context.fillRect(0, 0, 960, 576);
 	if(this.loadingTimer.nowFrame < 3000){
     	Context.drawImage(this.developer, 0, 0);
         Context.font         = '28px "ShowcardGothic"';
