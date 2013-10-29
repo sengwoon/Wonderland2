@@ -24,11 +24,11 @@ SoundSystem.prototype.AddSound = function( fileName, resourceCount )
     soundMusic.volume = this.volume;
     soundMusic.isPlayed = false;
     soundMusic.addEventListener("canplaythrough", onLoadSoundComplete, false);
-    soundMusic.addEventListener("ended", function()
-    {
-      if( window.chrome ) this.load();
-      this.pause();
-    }, false);  
+    // soundMusic.addEventListener("ended", function()
+    // {
+    //   if( window.chrome ) this.load();
+    //   this.pause();
+    // }, false);  
     
     document.body.appendChild(soundMusic);
     
