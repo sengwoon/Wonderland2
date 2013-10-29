@@ -37,9 +37,9 @@ function Render()
   // 그리기
   theCanvas = document.getElementById("GameCanvas");
   Context  = theCanvas.getContext("2d");
-  BG =  = document.getElementById("BGCanvas");
+  BG = document.getElementById("BGCanvas");
   BGg  = BG.getContext("2d");
-  UI =  = document.getElementById("UICanvas");
+  UI = document.getElementById("UICanvas");
   UIg  = UI.getContext("2d");
   
   game_state.Render();

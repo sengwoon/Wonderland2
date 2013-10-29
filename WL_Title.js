@@ -45,6 +45,7 @@ TitleState.prototype.Render= function(){
 
 TitleState.prototype.UpdateUI = function(){
 	if(this.isError==false){
+		//터치
 		if(inputSystem.touchX>10 && inputSystem.touchY>395 && inputSystem.touchX<10+262 && inputSystem.touchY<395+64){
 			if(inputSystem.isTouch){
 				if(this.flagLogin1==false){
@@ -76,8 +77,52 @@ TitleState.prototype.UpdateUI = function(){
 		} else {
 			this.flagLogin2=false;
 		}
+		//마우스
+		if(inputSystem.mouseX>10 && inputSystem.mouseY>395 && inputSystem.mouseX<10+262 && inputSystem.mouseY<395+64){
+			if(inputSystem.isMousePressed){
+				if(this.flagLogin1==false){
+					this.flagLogin1=true;
+				}
+			} else {
+				if(this.flagLogin1){
+					//soundSystem.PlaySound("sound/menuclick.mp3");
+					this.transition = true;
+					this.flagLogin1=false;
+				}
+			}
+		} else {
+			this.flagLogin1=false;
+		}	
+
+		if(inputSystem.mouseX>10 && inputSystem.mouseY>465 && inputSystem.mouseX<10+262 && inputSystem.mouseY<465+64){
+			if(inputSystem.isMousePressed){
+				if(this.flagLogin2==false){
+					this.flagLogin2=true;
+				}
+			} else {
+				if(this.flagLogin2){
+					//soundSystem.PlaySound("sound/menuclick.mp3");
+					this.isError = true;
+					this.flagLogin2=false;
+				}
+			}
+		} else {
+			this.flagLogin2=false;
+		}
 	} else if(this.isError){
+		//터치
 		if(inputSystem.isTouch){
+			if(this.flagClick==false){
+				this.flagClick=true;
+			}
+		} else {
+			if(this.flagClick){
+				this.isError = false;
+				this.flagClick=false;
+			}
+		}
+		//마우스
+		if(inputSystem.isMousePressed){
 			if(this.flagClick==false){
 				this.flagClick=true;
 			}

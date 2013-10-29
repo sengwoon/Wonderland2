@@ -67,11 +67,6 @@ function LoadingState()
 	this.imgLoading.src = "img/loading.png";
     return this;
 }
-LoadingState.prototype.Init = function( ){
-    BGg.clearRect(0, 0, 960, 576);
-    BGg.drawImage(this.developer, 0, 0);
-    
-};
 
 LoadingState.prototype.Render = function( )
 {
@@ -80,7 +75,7 @@ LoadingState.prototype.Render = function( )
 
     Context.clearRect(0, 0, 960, 576);
 	if(this.loadingTimer.nowFrame < 3000){
-    //	Context.drawImage(this.developer, 0, 0);
+    	Context.drawImage(this.developer, 0, 0);
         Context.font         = '28px "ShowcardGothic"';
         Context.fillText( "load font", -100, -100 );
     } else if( (this.loadingTimer.nowFrame>=3000) ) {
