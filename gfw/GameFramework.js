@@ -36,6 +36,9 @@ function Render()
   theCanvas = document.getElementById("GameCanvas");
   Context  = theCanvas.getContext("2d");
   
+  Context.globalAlpha = 1;
+  Context.fillStyle="#000000";
+  Context.fillRect(0, 0, 960, 576);
   game_state.Render();
   
   /*
@@ -44,14 +47,14 @@ function Render()
   Context.font         = '15px Arial'; 
   Context.textBaseline = "top";
   Context.fillText( "fps : " + frameCounter.Lastfps, 10, 10 );
-  */
+  
   //터치 좌표 표시
   Context.fillStyle    = "#ffffff";   
   Context.font         = '15px Arial'; 
   Context.textBaseline = "top";
   Context.fillText( "x좌표 : " + inputSystem.touchX, 10, 10 );
   Context.fillText( "y좌표 : " + inputSystem.touchY, 10, 30 );
-
+  */
 }
 
 function gameLoop()
